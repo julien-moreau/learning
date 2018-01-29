@@ -1,0 +1,339 @@
+{
+    "producer": {
+        "name": "Blender",
+        "version": "2.77 (sub 0)",
+        "exporter_version": "4.6.1",
+        "file": "blender.babylon"
+    },
+    "autoClear": true,
+    "clearColor": [
+        0.0509,
+        0.0509,
+        0.0509
+    ],
+    "ambientColor": [
+        0,
+        0,
+        0
+    ],
+    "gravity": [
+        0,
+        -9.81,
+        0
+    ],
+    "materials": [
+        {
+            "name": "blender.Material.001",
+            "id": "blender.Material.001",
+            "ambient": [
+                0.8,
+                0.0258,
+                0.2636
+            ],
+            "diffuse": [
+                0.64,
+                0.0206,
+                0.2109
+            ],
+            "specular": [
+                0.0093,
+                0.5,
+                0.0059
+            ],
+            "emissive": [
+                0,
+                0,
+                0
+            ],
+            "specularPower": 50,
+            "alpha": 1,
+            "backFaceCulling": true,
+            "checkReadyOnlyOnce": false
+        },
+        {
+            "name": "blender.Material",
+            "id": "blender.Material",
+            "ambient": [
+                0.0858,
+                0.0845,
+                0.8
+            ],
+            "diffuse": [
+                0.0687,
+                0.0676,
+                0.64
+            ],
+            "specular": [
+                0.5,
+                0.5,
+                0.5
+            ],
+            "emissive": [
+                0,
+                0,
+                0
+            ],
+            "specularPower": 50,
+            "alpha": 1,
+            "backFaceCulling": true,
+            "checkReadyOnlyOnce": false
+        }
+    ],
+    "multiMaterials": [],
+    "meshes": [
+        {
+            "name": "Plane",
+            "id": "Plane",
+            "materialId": "blender.Material.001",
+            "billboardMode": 0,
+            "position": [
+                0,
+                0,
+                0
+            ],
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "scaling": [
+                13.4154,
+                13.4154,
+                13.4154
+            ],
+            "isVisible": true,
+            "freezeWorldMatrix": false,
+            "isEnabled": true,
+            "checkCollisions": false,
+            "receiveShadows": false,
+            "positions": [
+                1,
+                0,
+                -1,
+                -1,
+                0,
+                1,
+                -1,
+                0,
+                -1,
+                1,
+                0,
+                1
+            ],
+            "normals": [
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0
+            ],
+            "indices": [
+                0,
+                1,
+                2,
+                0,
+                3,
+                1
+            ],
+            "subMeshes": [
+                {
+                    "materialIndex": 0,
+                    "verticesStart": 0,
+                    "verticesCount": 4,
+                    "indexStart": 0,
+                    "indexCount": 6
+                }
+            ],
+            "instances": []
+        },
+        {
+            "name": "Cube",
+            "id": "Cube",
+            "materialId": "blender.Material",
+            "billboardMode": 0,
+            "position": [
+                0,
+                1.5066,
+                0
+            ],
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "scaling": [
+                1,
+                1,
+                1
+            ],
+            "isVisible": true,
+            "freezeWorldMatrix": false,
+            "isEnabled": true,
+            "checkCollisions": false,
+            "receiveShadows": false,
+            "positions": [
+                1,
+                -1,
+                -1,
+                -1,
+                -1,
+                1,
+                1,
+                -1,
+                1,
+                -1,
+                1,
+                1,
+                1,
+                1,
+                -1,
+                1,
+                1,
+                1,
+                -1,
+                -1,
+                -1,
+                -1,
+                1,
+                -1
+            ],
+            "normals": [
+                0.5773,
+                -0.5773,
+                -0.5773,
+                -0.5773,
+                -0.5773,
+                0.5773,
+                0.5773,
+                -0.5773,
+                0.5773,
+                -0.5773,
+                0.5773,
+                0.5773,
+                0.5773,
+                0.5773,
+                -0.5773,
+                0.5773,
+                0.5773,
+                0.5773,
+                -0.5773,
+                -0.5773,
+                -0.5773,
+                -0.5773,
+                0.5773,
+                -0.5773
+            ],
+            "indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                5,
+                0,
+                2,
+                4,
+                6,
+                0,
+                6,
+                3,
+                1,
+                2,
+                3,
+                5,
+                0,
+                6,
+                1,
+                3,
+                7,
+                4,
+                5,
+                4,
+                0,
+                4,
+                7,
+                6,
+                6,
+                7,
+                3,
+                2,
+                1,
+                3
+            ],
+            "subMeshes": [
+                {
+                    "materialIndex": 0,
+                    "verticesStart": 0,
+                    "verticesCount": 8,
+                    "indexStart": 0,
+                    "indexCount": 36
+                }
+            ],
+            "instances": []
+        }
+    ],
+    "cameras": [
+        {
+            "name": "Camera",
+            "id": "Camera",
+            "position": [
+                7.4811,
+                5.3437,
+                -6.5076
+            ],
+            "rotation": [
+                0.4615,
+                -0.8149,
+                0.0108
+            ],
+            "fov": 0.8576,
+            "minZ": 0.1,
+            "maxZ": 100,
+            "speed": 1,
+            "inertia": 0.9,
+            "checkCollisions": false,
+            "applyGravity": false,
+            "ellipsoid": [
+                0.2,
+                0.9,
+                0.2
+            ],
+            "cameraRigMode": 0,
+            "interaxial_distance": 0.0637,
+            "type": "FreeCamera"
+        }
+    ],
+    "activeCamera": "Camera",
+    "lights": [
+        {
+            "name": "Lamp",
+            "id": "Lamp",
+            "type": 0,
+            "position": [
+                4.0762,
+                5.9039,
+                1.0055
+            ],
+            "intensity": 1,
+            "diffuse": [
+                1,
+                1,
+                1
+            ],
+            "specular": [
+                1,
+                1,
+                1
+            ]
+        }
+    ],
+    "shadowGenerators": []
+}

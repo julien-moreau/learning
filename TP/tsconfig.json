@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "sourceMap": true,
+      "declaration": true,
+      "outDir": "./build",
+      "typeRoots" : ["node_modules"],
+      "types": [
+        "babylonjs"
+      ],
+      "experimentalDecorators": true,
+      "outFile": "./build/index.js"
+    },
+    "exclude": [
+      "build",
+      "declaration",
+      "node_modules"
+    ]
+  }
+  

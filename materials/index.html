@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Babylon.js Template</title>
+
+    <style>
+        html, body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <canvas id="renderCanvas"></canvas>
+
+    <!-- LIBS -->
+    <script src="../libs/babylon.max.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var canvas = document.getElementById("renderCanvas");
+        var engine = new BABYLON.Engine(canvas);
+        var scene = new BABYLON.Scene(engine);
+
+        var camera = new BABYLON.ArcRotateCamera("camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
+        camera.setTarget(BABYLON.Vector3.Zero());
+        camera.attachControl(canvas);
+
+        var light = new BABYLON.PointLight("light", new BABYLON.Vector3(15, 15, 15), scene);
+        light.diffuse = new BABYLON.Color3(1.0, 1.0, 1.0);
+        light.specular = new BABYLON.Color3(1.0, 0.5, 0.0);
+
+        var cube = BABYLON.Mesh.CreateBox("box", 4.0, scene);
+
+        var material = new BABYLON.StandardMaterial("material", scene);
+        material.diffuseTexture = new BABYLON.Texture("../assets/diffuse.png", scene);
+        material.bumpTexture = new BABYLON.Texture("../assets/normal.png", scene);
+        cube.material = material;
+
+        engine.runRenderLoop(function() {
+            scene.render();
+        });
+    </script>
+
+</body>
+</html>
