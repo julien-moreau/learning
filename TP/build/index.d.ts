@@ -19,6 +19,9 @@ declare module BABYLON {
 declare module BABYLON {
     class OceanMaterial {
         material: ShaderMaterial;
+        diffuseSampler1: Texture;
+        diffuseSampler2: Texture;
+        time: number;
         /**
          * Constructor
          * @param scene the scene where to add the material

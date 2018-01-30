@@ -36,18 +36,26 @@ var BABYLON;
          * @param scene the scene where to add the material
          */
         function OceanMaterial(scene) {
+            var _this = this;
+            this.time = 0;
             this.material = new BABYLON.ShaderMaterial('ocean', scene, {
                 vertexElement: './shaders/ocean',
                 fragmentElement: './shaders/ocean',
             }, {
-                attributes: ['position'],
-                uniforms: ['worldViewProjection'],
-                samplers: [],
+                attributes: ['position', 'uv'],
+                uniforms: ['worldViewProjection', 'time'],
+                samplers: ['diffuseSampler1', 'diffuseSampler2'],
                 defines: [],
             });
+            // Textures
+            this.diffuseSampler1 = new BABYLON.Texture('./assets/diffuse.png', scene);
+            this.diffuseSampler2 = this.diffuseSampler1.clone(); // new Texture('./assets/diffuse.png', scene);
             // Bind
             this.material.onBind = function (mesh) {
-                // TODO
+                _this.time += scene.getEngine().getDeltaTime() * 0.003;
+                _this.material.setFloat('time', _this.time);
+                _this.material.setTexture('diffuseSampler1', _this.diffuseSampler1);
+                _this.material.setTexture('diffuseSampler2', _this.diffuseSampler2);
             };
         }
         return OceanMaterial;
