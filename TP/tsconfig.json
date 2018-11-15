@@ -6,7 +6,8 @@
       "outDir": "./build",
       "typeRoots" : ["node_modules"],
       "types": [
-        "babylonjs"
+        "babylonjs",
+        "babylonjs-gui"
       ],
       "experimentalDecorators": true,
       "outFile": "./build/index.js"
