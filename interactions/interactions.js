@@ -1,6 +1,6 @@
 var BABYLON;
 (function (BABYLON) {
-    var Interactions = (function () {
+    var Interactions = /** @class */ (function () {
         // Constructor
         function Interactions(scene) {
             this.scene = scene;
@@ -30,11 +30,11 @@ var BABYLON;
                 var mesh = null;
                 if (random > 0.5) {
                     mesh = BABYLON.Mesh.CreateSphere("sphere", 32, 5, _this.scene);
-                    mesh.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1 });
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1 });
                 }
                 else {
                     mesh = BABYLON.Mesh.CreateBox("cube", 4.0, _this.scene);
-                    mesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 1 });
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 1 });
                 }
                 cube.applyImpulse(new BABYLON.Vector3(0, 10, 0), new BABYLON.Vector3(0, -1, 0));
                 mesh.checkCollisions = true;
@@ -48,9 +48,9 @@ var BABYLON;
             this.scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
             var cube = this.scene.getMeshByID("cube");
             cube.position.y += 0.5;
-            cube.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 1 });
+            cube.physicsImpostor = new BABYLON.PhysicsImpostor(cube, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 1 });
             var ground = this.scene.getMeshByID("ground");
-            ground.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 0 });
+            ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0 });
         };
         return Interactions;
     }());

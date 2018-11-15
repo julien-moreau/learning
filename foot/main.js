@@ -1,6 +1,6 @@
 var BABYLON;
 (function (BABYLON) {
-    var Main = (function () {
+    var Main = /** @class */ (function () {
         function Main(scene) {
             // Private members
             this._ground = null;
@@ -40,9 +40,9 @@ var BABYLON;
             // Setup physics in scene
             this.scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
             // Set physics bodies
-            this._ground.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 0 });
-            this._ball.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1 });
-            this._obstacles.forEach(function (o) { return o.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 0 }); });
+            this._ground.physicsImpostor = new BABYLON.PhysicsImpostor(this._ground, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0 });
+            this._ball.physicsImpostor = new BABYLON.PhysicsImpostor(this._ball, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1 });
+            this._obstacles.forEach(function (o) { return o.physicsImpostor = new BABYLON.PhysicsImpostor(o, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0 }); });
             // Tap the ball
             this._ball.actionManager = new BABYLON.ActionManager(this.scene);
             this._ball.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnLeftPickTrigger, function (evt) {
@@ -58,7 +58,7 @@ var BABYLON;
                     this._ball.position.z = 0;*/
                     _this._ball.position = new BABYLON.Vector3(0, 1.5, 0);
                     _this._ball.getPhysicsImpostor().dispose();
-                    _this._ball.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1 });
+                    _this._ball.physicsImpostor = new BABYLON.PhysicsImpostor(_this._ball, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1 });
                 }, 5000);
             }));
         };

@@ -53,9 +53,9 @@ module BABYLON {
             // Setup physics in scene
             this.scene.enablePhysics(new Vector3(0, -9.81, 0), new CannonJSPlugin());
             // Set physics bodies
-            this._ground.setPhysicsState(PhysicsEngine.BoxImpostor, { mass: 0 });
-            this._ball.setPhysicsState(PhysicsEngine.SphereImpostor, { mass: 1 });
-            this._obstacles.forEach((o) => o.setPhysicsState(PhysicsEngine.BoxImpostor, { mass: 0 }));
+            this._ground.physicsImpostor = new PhysicsImpostor(this._ground, PhysicsImpostor.BoxImpostor, { mass: 0 });
+            this._ball.physicsImpostor = new PhysicsImpostor(this._ball, PhysicsImpostor.SphereImpostor, { mass: 1 });
+            this._obstacles.forEach((o) => o.physicsImpostor = new PhysicsImpostor(o, PhysicsImpostor.BoxImpostor, { mass: 0 }));
             // Tap the ball
             this._ball.actionManager = new ActionManager(this.scene);
             this._ball.actionManager.registerAction(
@@ -76,7 +76,7 @@ module BABYLON {
                         this._ball.position.z = 0;*/
                         this._ball.position = new Vector3(0, 1.5, 0);
                         this._ball.getPhysicsImpostor().dispose();
-                        this._ball.setPhysicsState(PhysicsEngine.SphereImpostor, { mass: 1 });
+                        this._ball.physicsImpostor = new PhysicsImpostor(this._ball, PhysicsImpostor.SphereImpostor, { mass: 1});
                     }, 5000);
                 })
             );

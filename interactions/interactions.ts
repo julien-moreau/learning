@@ -39,11 +39,11 @@ module BABYLON {
 
                 if (random > 0.5) {
                     mesh = Mesh.CreateSphere("sphere", 32, 5, this.scene);
-                    mesh.setPhysicsState(PhysicsEngine.SphereImpostor, { mass: 1 });
+                    mesh.physicsImpostor = new PhysicsImpostor(mesh, PhysicsImpostor.SphereImpostor, { mass: 1 });
                 }
                 else {
                     mesh = Mesh.CreateBox("cube", 4.0, this.scene);
-                    mesh.setPhysicsState(PhysicsEngine.BoxImpostor, { mass: 1 });
+                    mesh.physicsImpostor = new PhysicsImpostor(mesh, PhysicsImpostor.BoxImpostor, { mass: 1 });
                 }
 
                 cube.applyImpulse(new Vector3(0, 10, 0), new Vector3(0, -1, 0));
@@ -61,10 +61,10 @@ module BABYLON {
 
             var cube = this.scene.getMeshByID("cube");
             cube.position.y += 0.5;
-            cube.setPhysicsState(PhysicsEngine.BoxImpostor, { mass: 1 });
+            cube.physicsImpostor = new PhysicsImpostor(cube, PhysicsImpostor.BoxImpostor, { mass: 1 });
 
             var ground = this.scene.getMeshByID("ground");
-            ground.setPhysicsState(PhysicsEngine.BoxImpostor, { mass: 0 });
+            ground.physicsImpostor = new PhysicsImpostor(ground, PhysicsImpostor.BoxImpostor, { mass: 0 });
         }
     }
 }
