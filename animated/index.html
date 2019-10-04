@@ -25,8 +25,7 @@
     <canvas id="renderCanvas"></canvas>
 
     <!-- LIBS -->
-    <script src="../libs/babylon.max.js" type="text/javascript"></script>
-    <script src="../libs/babylon.inspector.bundle.js" type="text/javascript"></script>
+    <script src="../node_modules/babylonjs/babylon.max.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         /// <reference path="../libs/babylon.d.ts" />
@@ -35,13 +34,12 @@
 
         BABYLON.SceneLoader.Load("../assets/", "DanceMoves.babylon", engine, function (scene) {
             scene.activeCamera.attachControl(canvas);
-
-            console.info(scene.meshes[1].skeleton);
             scene.beginAnimation(scene.meshes[1].skeleton, 0, 10000, true, 0.05);
-            
-            scene.meshes[1].showBoundingBox = true;
 
+            scene.meshes[1].showBoundingBox = true;
+            
             scene.debugLayer.show();
+
             engine.resize();
 
             engine.runRenderLoop(function() {

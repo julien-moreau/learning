@@ -26,7 +26,7 @@
     <canvas id="renderCanvas"></canvas>
 
     <!-- LIBS -->
-    <script src="../libs/babylon.max.js" type="text/javascript"></script>
+    <script src="../node_modules/babylonjs/babylon.max.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         var canvas = document.getElementById("renderCanvas");
@@ -40,6 +40,11 @@
         var light = new BABYLON.PointLight("light", new BABYLON.Vector3(15, 15, 15), scene);
 
         var cube = BABYLON.Mesh.CreateBox("box", 5.0, scene);
+
+        var std = new BABYLON.StandardMaterial("std", scene);
+        std.diffuseColor = new BABYLON.Color3(0, 0, 0);
+        std.emissiveColor = new BABYLON.Color3(1, 0.5, 0);
+        cube.material = std;
 
         engine.runRenderLoop(function() {
             scene.render();

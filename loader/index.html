@@ -22,17 +22,16 @@
 
 </head>
 <body>
-
     <canvas id="renderCanvas"></canvas>
 
     <!-- LIBS -->
-    <script src="../libs/babylon.max.js" type="text/javascript"></script>
+    <script src="../node_modules/babylonjs/babylon.max.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         var canvas = document.getElementById("renderCanvas");
         var engine = new BABYLON.Engine(canvas);
 
-        BABYLON.SceneLoader.Load("../assets/Espilit/", "Espilit.binary.babylon", engine, function (scene) {
+        BABYLON.SceneLoader.Load("../assets/", "gg.babylon", engine, function (scene) {
             scene.activeCamera.attachControl(canvas);
 
             engine.runRenderLoop(function() {
