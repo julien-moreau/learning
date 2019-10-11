@@ -27,18 +27,6 @@ module BABYLON {
             this._initGeometries();
             this._initPhysics();
             this._initInteractions();
-
-            this.assign(this.cube, {
-                maki: 1
-            });
-        }
-
-        public assign<T extends any, U extends any>(target: T, source: U): T & U {
-            for (const key in source) {
-                target[key] = source[key];
-            }
-
-            return target as T & U;
         }
 
         /**
@@ -67,7 +55,6 @@ module BABYLON {
 
         private _initGeometries(): void {
             this.ground = Mesh.CreateGround('ground', 512, 512, 1, this.scene);
-            this.ground.isPickable = true;
 
             this.cube = Mesh.CreateBox('box', 5, this.scene);
             this.cube.position.y = 5;
@@ -100,7 +87,7 @@ module BABYLON {
             });
 
             this.cube.physicsImpostor = new PhysicsImpostor(this.cube, PhysicsImpostor.BoxImpostor, {
-                mass: 1
+                mass: 6
             });
         }
 

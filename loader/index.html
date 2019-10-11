@@ -31,7 +31,7 @@
         var canvas = document.getElementById("renderCanvas");
         var engine = new BABYLON.Engine(canvas);
 
-        BABYLON.SceneLoader.Load("../assets/", "gg.babylon", engine, function (scene) {
+        BABYLON.SceneLoader.Load("../assets/", "blender.babylon", engine, function (scene) {
             scene.activeCamera.attachControl(canvas);
 
             engine.runRenderLoop(function() {

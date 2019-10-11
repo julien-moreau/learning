@@ -34,17 +34,8 @@ var BABYLON;
             _this._initGeometries();
             _this._initPhysics();
             _this._initInteractions();
-            _this.assign(_this.cube, {
-                maki: 1
-            });
             return _this;
         }
-        Interactions.prototype.assign = function (target, source) {
-            for (var key in source) {
-                target[key] = source[key];
-            }
-            return target;
-        };
         /**
          * Runs the interactions game.
          */
@@ -68,7 +59,6 @@ var BABYLON;
         };
         Interactions.prototype._initGeometries = function () {
             this.ground = BABYLON.Mesh.CreateGround('ground', 512, 512, 1, this.scene);
-            this.ground.isPickable = true;
             this.cube = BABYLON.Mesh.CreateBox('box', 5, this.scene);
             this.cube.position.y = 5;
             this.cube.isPickable = true;
@@ -93,7 +83,7 @@ var BABYLON;
                 mass: 0
             });
             this.cube.physicsImpostor = new BABYLON.PhysicsImpostor(this.cube, BABYLON.PhysicsImpostor.BoxImpostor, {
-                mass: 1
+                mass: 6
             });
         };
         Interactions.prototype._initInteractions = function () {
